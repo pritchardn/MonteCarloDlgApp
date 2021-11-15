@@ -35,7 +35,7 @@ This project template is the starting point for people who want to develop Pytho
 - ✅ Code linting using [flake8](https://flake8.pycqa.org/en/latest/)
 - 📊 Code coverage reports using [codecov](https://about.codecov.io/sign-up/)
 - 🛳️ Automatic release to [PyPI](https://pypi.org) using [twine](https://twine.readthedocs.io/en/latest/) and github actions.
-- 🎯 Entry points to execute your program using `python -m <project_name>` or `$ project_name` with basic CLI argument parsing.
+- 🎯 Entry points to execute your program using `python -m <montecarlodlgapp>` or `$ montecarlodlgapp` with basic CLI argument parsing.
 - 🔄 Continuous integration using [Github Actions](.github/workflows/) with jobs to lint, test and release your project on Linux and Mac environments.
 
 > Curious about architectural decisions on this template? read [ABOUT_THIS_TEMPLATE.md](ABOUT_THIS_TEMPLATE.md)  
@@ -46,10 +46,10 @@ This project template is the starting point for people who want to develop Pytho
 ---
 # my_awesome_component
 
-[![codecov](https://codecov.io/gh/author_name/project_urlname/branch/main/graph/badge.svg?token=project_urlname_token_here)](https://codecov.io/gh/author_name/project_urlname)
-[![CI](https://github.com/author_name/project_urlname/actions/workflows/main.yml/badge.svg)](https://github.com/author_name/project_urlname/actions/workflows/main.yml)
+[![codecov](https://codecov.io/gh/pritchardn/MonteCarloDlgApp/branch/main/graph/badge.svg?token=MonteCarloDlgApp_token_here)](https://codecov.io/gh/pritchardn/MonteCarloDlgApp)
+[![CI](https://github.com/pritchardn/MonteCarloDlgApp/actions/workflows/main.yml/badge.svg)](https://github.com/pritchardn/MonteCarloDlgApp/actions/workflows/main.yml)
 
-project_description
+Awesome montecarlodlgapp created by pritchardn
 
 ## Install it from PyPI
 
@@ -66,7 +66,7 @@ MyAppDROP('a','a').run()
 ```
 
 ```bash
-$ python -m project_name
+$ python -m montecarlodlgapp
 #or
-$ project_name
+$ montecarlodlgapp
 ```
