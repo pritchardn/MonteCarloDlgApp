@@ -75,7 +75,7 @@ class MonteCarloAppDrop(BarrierAppDROP):
         """
         inside = 0
         outside = 0
-        for _ in range(self.numIterations*self.numIterations):
+        for _ in range(self.numIterations * self.numIterations):
             x = random.uniform(-1, 1)
             y = random.uniform(-1, 1)
             origin_dist = x ** 2 + y ** 2
@@ -83,5 +83,5 @@ class MonteCarloAppDrop(BarrierAppDROP):
                 inside += 1
             else:
                 outside += 1
-        pi = inside/outside
+        pi = inside / outside
         return pi
