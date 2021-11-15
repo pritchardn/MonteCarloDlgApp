@@ -3,7 +3,7 @@ __package__ = "montecarlodlgapp"
 from dlg import droputils, utils
 
 # extend the following as required
-from .appComponents import MyAppDROP
+from .appComponents import MonteCarloAppDrop
 from .dataComponents import MyDataDROP
 
-__all__ = ["MyAppDROP", "MyDataDROP"]
+__all__ = ["MonteCarloAppDrop", "MyDataDROP"]

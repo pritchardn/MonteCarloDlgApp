@@ -1,12 +1,18 @@
 import pytest
 
-from montecarlodlgapp import MyAppDROP, MyDataDROP
+from montecarlodlgapp import MonteCarloAppDrop, MyDataDROP
 
 given = pytest.mark.parametrize
 
 
 def test_myApp_class():
-    assert MyAppDROP("a", "a").run() == "Hello from MyAppDROP"
+    first = MonteCarloAppDrop("a", "a")
+    second = MonteCarloAppDrop("a", "a")
+    second.randomSeed = 100
+    first.initialize()
+    second.initialize()
+    pi_1 = first.run()
+    assert pi_1 != second.run()
 
 
 def test_myData_class():

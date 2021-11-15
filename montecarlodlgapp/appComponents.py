@@ -10,18 +10,14 @@ then result in a single EAGLE palette.
 Be creative! do whatever you need to do!
 """
 import logging
-import pickle
 
-from dlg.drop import BarrierAppDROP, BranchAppDrop
+from dlg.drop import BarrierAppDROP
 from dlg.meta import (
     dlg_batch_input,
     dlg_batch_output,
-    dlg_bool_param,
     dlg_component,
-    dlg_float_param,
     dlg_int_param,
     dlg_streaming_input,
-    dlg_string_param,
 )
 
 logger = logging.getLogger(__name__)
@@ -49,8 +45,10 @@ logger = logging.getLogger(__name__)
 # It is also possible to inherit directly from the AbstractDROP class. Please
 # refer to the Developer Guide for more information.
 
+import random
 
-class MyAppDROP(BarrierAppDROP):
+
+class MonteCarloAppDrop(BarrierAppDROP):
     """A template BarrierAppDrop that doesn't do anything at all
     Add your functionality in the run method and optional additional
     methods.
@@ -64,13 +62,26 @@ class MyAppDROP(BarrierAppDROP):
         [dlg_streaming_input("binary/*")],
     )
 
-    sleepTime = dlg_float_param("sleep time", 0)
+    numIterations = dlg_int_param("Iterations", 100)
+    randomSeed = dlg_int_param("Random", 42)
 
     def initialize(self, **kwargs):
-        super(MyAppDROP, self).initialize(**kwargs)
+        random.seed(self.randomSeed)
+        super(MonteCarloAppDrop, self).initialize(**kwargs)
 
     def run(self):
         """
         The run method is mandatory for DALiuGE application components.
         """
-        return f"Hello from {self.__class__.__name__}"
+        inside = 0
+        outside = 0
+        for _ in range(self.numIterations*self.numIterations):
+            x = random.uniform(-1, 1)
+            y = random.uniform(-1, 1)
+            origin_dist = x ** 2 + y ** 2
+            if origin_dist <= 1:
+                inside += 1
+            else:
+                outside += 1
+        pi = inside/outside
+        return pi
